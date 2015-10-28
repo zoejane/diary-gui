@@ -81,8 +81,6 @@ class StartPage(tk.Frame):
                             command=lambda: controller.show_frame(PageOne))
         button2 = tk.Button(self, text="读日记",
                             command=lambda: controller.show_frame(PageTwo))
-#        button1.pack()
-#        button2.pack()
 
         self.photo1=tk.PhotoImage(file="images/write_200.gif")
         canvas1=tk.Canvas(self, width=self.photo1.width(), height=self.photo1.height())
@@ -98,6 +96,9 @@ class StartPage(tk.Frame):
         canvas2.pack()
         button2.pack()
 
+        canvas=tk.Canvas(self,width=400,height=10)
+        canvas.pack()
+        # 让界面宽一点，同时给底部添加一个pady，因为还不知道具体用法，先用weight和height来占位
 
 class PageOne(tk.Frame):
 
