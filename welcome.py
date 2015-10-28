@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import Tkinter as tk
 import time
-
+from Tkinter import *
 
 TITLE_FONT = ("Helvetica", 18, "bold")
 
@@ -104,17 +104,23 @@ class PageTwo(tk.Frame):
                            command=lambda: controller.show_frame(StartPage))
         button.pack()
         
-        text = tk.Text(self,height=2, width=30)
+        scrollbar = tk.Scrollbar(self)
+        text = tk.Text(self,height=20, width=50)
+
+        scrollbar.pack(side=RIGHT,fill=Y)
         text.pack()
 
         diaryFile = open('diary.txt','a')
         diaryFile.close()
         # 是想实现 如果不存在diary.txt，创建它。 看有更好的方法来判断这个吗。
         diaryFile = open('diary.txt')
+
         diary = diaryFile.read()
+        text.insert(tk.END, diary)
+        
         diaryFile.close()
 
-        text.insert(tk.END, diary)
+
 
 
 if __name__ == "__main__":
