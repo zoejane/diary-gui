@@ -1,24 +1,4 @@
-'''from Tkinter import *
-class App:
-  def __init__(self, master):
-    frame = Frame(master)
-    frame.pack()
-    self.button = Button(frame, 
-                         text="QUIT", fg="red",
-                         command=frame.quit)
-    self.button.pack(side=LEFT)
 
-
-    self.slogan = Button(frame,
-                         text="Hello",
-                         command=self.write_slogan)
-    self.slogan.pack(side=LEFT)
-  def write_slogan(self):
-    print "Tkinter is easy to use!"
-
-root = Tk()
-app = App(root)
-root.mainloop()'''
 
 import Tkinter
 from Tkconstants import *
@@ -50,22 +30,25 @@ tk = Tkinter.Tk()
 app = Application(tk)
 
 tk.mainloop()
+'''
 
-'''from Tkinter import *
+import Tkinter
+from Tkconstants import *
 
-canvas_width = 300
-canvas_height =300
+def fenster(tk):
+    frame=Tkinter.Frame(tk)
+    frame.pack()
+    photo=Tkinter.PhotoImage(file="images/read_200.gif")
+    canvas=Tkinter.Canvas(frame,width=400,height=500,bg="blue")
+    canvas.create_image(200, 250, image=photo)
+    canvas.pack()
+    button=Tkinter.Button(frame, text="EXIT", command=tk.destroy)
+    button.pack()
+    return photo
+    
+tk = Tkinter.Tk()
+ergebnis=fenster(tk)
+tk.mainloop()
 
-master = Tk()
 
-canvas = Canvas(master, 
-           width=canvas_width, 
-           height=canvas_height)
-canvas.pack()
-
-img1 = PhotoImage(file="images/write_200.gif")
-canvas.create_image(20,20, anchor=NW, image=img1)
-img2 = PhotoImage(file="images/read_200.gif")
-canvas.create_image(200,20, anchor=NW, image=img2)
-
-mainloop()'''
+'''
