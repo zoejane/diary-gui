@@ -95,7 +95,7 @@ class PageTwo(tk.Frame):
         diaryFile = open('diary.txt')
         diary = diaryFile.read()
 
-        text.insert(tk.END, "Just a text Widget\nin two lines\n")
+        text.insert(tk.END, diary)
 
 
 if __name__ == "__main__":
