@@ -75,6 +75,15 @@ class PageOne(tk.Frame):
                            command=lambda: controller.show_frame(StartPage))
         button.pack()
 
+        self.entry = tk.Entry(self)
+        self.button = tk.Button(self, text="Get", command=self.on_button)
+        self.entry.pack(ipadx=100,ipady=10)
+        self.button.pack()
+
+    def on_button(self):
+        print(self.entry.get())
+
+
 
 class PageTwo(tk.Frame):
 
