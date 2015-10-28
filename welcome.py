@@ -74,7 +74,7 @@ class StartPage(tk.Frame):
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
-        label = tk.Label(self, text="This is the start page", font=TITLE_FONT)
+        label = tk.Label(self, text="Diary", font=TITLE_FONT)
         label.pack(side="top", fill="x", pady=10)
 
         button1 = tk.Button(self, text="写日记",
@@ -86,12 +86,12 @@ class StartPage(tk.Frame):
 
         self.photo1=tk.PhotoImage(file="images/write_200.gif")
         canvas1=tk.Canvas(self, width=self.photo1.width(), height=self.photo1.height())
-        canvas1.create_image(100,100,image=self.photo1)
+        canvas1.create_image(100,70,image=self.photo1)
 
 
         self.photo2=tk.PhotoImage(file="images/read_200.gif")
         canvas2=tk.Canvas(self, width=self.photo2.width(), height=self.photo1.height())
-        canvas2.create_image(100,100,image=self.photo2)
+        canvas2.create_image(100,80,image=self.photo2)
 
         canvas1.pack()
         button1.pack()
@@ -103,9 +103,9 @@ class PageOne(tk.Frame):
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
-        label = tk.Label(self, text="This is page 1", font=TITLE_FONT)
+        label = tk.Label(self, text="写日记", font=TITLE_FONT)
         label.pack(side="top", fill="x", pady=10)
-        button = tk.Button(self, text="Go to the start page",
+        button = tk.Button(self, text="Go back",
                            command=lambda: controller.show_frame(StartPage))
         button.pack()
 
@@ -114,9 +114,9 @@ class PageTwo(tk.Frame):
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
-        label = tk.Label(self, text="This is page 2", font=TITLE_FONT)
+        label = tk.Label(self, text="读日记", font=TITLE_FONT)
         label.pack(side="top", fill="x", pady=10)
-        button = tk.Button(self, text="Go to the start page",
+        button = tk.Button(self, text="Go back",
                            command=lambda: controller.show_frame(StartPage))
         button.pack()
 
