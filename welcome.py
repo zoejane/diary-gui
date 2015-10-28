@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import Tkinter as tk
+import time
 
 
 TITLE_FONT = ("Helvetica", 18, "bold")
@@ -81,8 +82,15 @@ class PageOne(tk.Frame):
         self.button.pack()
 
     def save(self):
-        print(self.entry.get())
+        diaryFile = open('diary.txt','a')
+
+        diary=self.entry.get()
+        diaryFile.write('\n' + time.strftime('%Y/%m/%d')+ ' ' +diary)
+        
         self.entry.delete(0,tk.END)
+        diaryFile.close()
+
+
 
 
 
@@ -104,6 +112,7 @@ class PageTwo(tk.Frame):
         # 是想实现 如果不存在diary.txt，创建它。 看有更好的方法来判断这个吗。
         diaryFile = open('diary.txt')
         diary = diaryFile.read()
+        diaryFile.close()
 
         text.insert(tk.END, diary)
 
