@@ -88,6 +88,13 @@ class PageTwo(tk.Frame):
         
         text = tk.Text(self,height=2, width=30)
         text.pack()
+
+        diaryFile = open('diary.txt','a')
+        diaryFile.close()
+        # 是想实现 如果不存在diary.txt，创建它。 看有更好的方法来判断这个吗。
+        diaryFile = open('diary.txt')
+        diary = diaryFile.read()
+
         text.insert(tk.END, "Just a text Widget\nin two lines\n")
 
 
