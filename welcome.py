@@ -1,39 +1,4 @@
-
 # -*- coding: utf-8 -*-
-
-'''
-import Tkinter
-from Tkconstants import *
-
-class Application:
-    def __init__(self, master):
-        frame = Tkinter.Frame(master)
-        frame.pack()
-
-        self.photo1=Tkinter.PhotoImage(file="images/write_200.gif")
-        canvas=Tkinter.Canvas(frame, width=self.photo1.width(), height=self.photo1.height())
-        canvas.create_image(0,0,anchor=NW,image=self.photo1)
-        canvas.pack()
-
-        button = Tkinter.Button(frame, text = "写日记", command = master.destroy)
-        button.pack()
-        
-        self.photo2=Tkinter.PhotoImage(file="images/read_200.gif")
-        canvas=Tkinter.Canvas(frame, width=self.photo2.width(), height=self.photo2.height())
-        canvas.create_image(0,0,anchor=NW,image=self.photo2)
-        canvas.pack()
-
-        button = Tkinter.Button(frame, text = "读日记", command = master.destroy)
-        button.pack()
-
-
-tk = Tkinter.Tk()
-
-app = Application(tk)
-
-tk.mainloop()
-'''
-
 import Tkinter as tk
 
 
@@ -120,6 +85,10 @@ class PageTwo(tk.Frame):
         button = tk.Button(self, text="Go back",
                            command=lambda: controller.show_frame(StartPage))
         button.pack()
+        
+        text = tk.Text(self,height=2, width=30)
+        text.pack()
+        text.insert(tk.END, "Just a text Widget\nin two lines\n")
 
 
 if __name__ == "__main__":
