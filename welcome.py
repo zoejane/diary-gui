@@ -89,6 +89,11 @@ class StartPage(tk.Frame):
         canvas.create_image(100,100,image=self.photo1)
         canvas.pack()
 
+        self.photo2=tk.PhotoImage(file="images/read_200.gif")
+        canvas=tk.Canvas(self, width=self.photo2.width(), height=self.photo1.height())
+        canvas.create_image(100,100,image=self.photo2)
+        canvas.pack()
+
 
 class PageOne(tk.Frame):
 
