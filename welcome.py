@@ -1,4 +1,4 @@
-
+# -*- coding: utf-8 -*-
 
 import Tkinter
 from Tkconstants import *
@@ -13,7 +13,7 @@ class Application:
         canvas.create_image(0,0,anchor=NW,image=self.photo1)
         canvas.pack()
 
-        button = Tkinter.Button(frame, text = "Ende", command = master.destroy)
+        button = Tkinter.Button(frame, text = "写日记", command = master.destroy)
         button.pack()
         
         self.photo2=Tkinter.PhotoImage(file="images/read_200.gif")
@@ -21,7 +21,7 @@ class Application:
         canvas.create_image(0,0,anchor=NW,image=self.photo2)
         canvas.pack()
 
-        button = Tkinter.Button(frame, text = "Ende", command = master.destroy)
+        button = Tkinter.Button(frame, text = "读日记", command = master.destroy)
         button.pack()
 
 
