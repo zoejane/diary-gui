@@ -4,6 +4,7 @@ import time
 from Tkinter import *
 
 TITLE_FONT = ("Helvetica", 18, "bold")
+READING_FONT=('sans-serif', 16)
 
 
 class SampleApp(tk.Tk):
@@ -84,7 +85,7 @@ class PageOne(tk.Frame):
     def save(self):
         diaryFile = open('diary.txt','a')
 
-        diary=self.entry.get()
+        diary=self.entry.get().encode('utf-8')
         diaryFile.write('\n' + time.strftime('%Y/%m/%d')+ ' ' +diary)
         
         self.entry.delete(0,tk.END)
@@ -104,25 +105,32 @@ class PageTwo(tk.Frame):
                            command=lambda: controller.show_frame(StartPage))
         button.pack()
         
+        # 尝试添加scrollbar
         scrollbar = tk.Scrollbar(self)
-        text = tk.Text(self,height=20, width=50)
+        text = tk.Text(self,height=10, width=40,font=READING_FONT)
 
         scrollbar.pack(side=RIGHT,fill=Y)
-        text.pack()
+        text.pack(side=LEFT, fill=Y)
 
+        scrollbar.config(command=text.yview)
+        text.config(yscrollcommand=scrollbar.set)
+
+        # 是想实现 如果不存在diary.txt，创建它。 看有更好的方法来判断这个吗。
         diaryFile = open('diary.txt','a')
         diaryFile.close()
-        # 是想实现 如果不存在diary.txt，创建它。 看有更好的方法来判断这个吗。
+
         diaryFile = open('diary.txt')
 
         diary = diaryFile.read()
         text.insert(tk.END, diary)
         
         diaryFile.close()
+        
 
-
+        
 
 
 if __name__ == "__main__":
     app = SampleApp()
     app.mainloop()
+
