@@ -76,12 +76,13 @@ class PageOne(tk.Frame):
         button.pack()
 
         self.entry = tk.Entry(self)
-        self.button = tk.Button(self, text="Get", command=self.on_button)
+        self.button = tk.Button(self, text="保存", command=self.save)
         self.entry.pack(ipadx=100,ipady=10)
         self.button.pack()
 
-    def on_button(self):
+    def save(self):
         print(self.entry.get())
+        self.entry.delete(0,tk.END)
 
 
 
